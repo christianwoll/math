@@ -1,0 +1,1 @@
+print('Thing #1')
