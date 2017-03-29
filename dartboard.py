@@ -1,10 +1,13 @@
-single_ways = [1] + [0 for _ in range(180)]
-for n in range(20):
-    n += 1
+single_ways = [0 for _ in range(181)]
+for n in range(1, 21):
     single_ways[n] += 1
     single_ways[2 * n] += 1
     single_ways[3 * n] += 1
 
+# There is 1 way to get 0 points. I.e. miss
+single_ways[0] += 1
+
+# Account for the bullseye
 single_ways[25] += 1
 single_ways[50] += 1
 
@@ -37,7 +40,4 @@ for n in range(181):
 
     print('%d: %d' % (n, ways[-1]))
 
-perfect = 0
-for n in range(151, 181):
-    perfect += ways[n] * ways[301 - n]
-print('%d perfect games' % perfect)
+print('Perfect games:', sum([ways[n] * ways[300 - n] for n in range(150, 181)]))
