@@ -4,8 +4,8 @@ import random
 import numpy as np
 from PIL import Image
 
-width = 360
-height = 640
+width = 500
+height = 500
 
 parents = 5
 rule = [1 if random.random() > 0.5 else 0 for _ in range(2**parents)]
