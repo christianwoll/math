@@ -15,8 +15,8 @@ def agm(x, y=1):
 
 
 # Generate a lattice
-X = Y = Z = 10
-sx = sy = sz = 1
+X = Y = Z = 100
+sx = sy = sz = 10
 lattice = [(x*sx, y*sy, z*sy) for x in range(int(X/sx)) for y in range(int(Y/sy)) for z in range(int(Z/sz))]
 
 
@@ -26,7 +26,8 @@ transformed = []
 for p in lattice:
     q = Quaternion(1, p[0], p[1], p[2])
     Q = agm(q)
-    transformed.append((Q.b/Q.a, Q.c/Q.a, Q.d/Q.a))
+    #transformed.append((Q.b/Q.a, Q.c/Q.a, Q.d/Q.a)) # Normed
+    transformed.append((Q.b, Q.c, Q.d))
 
 
 
