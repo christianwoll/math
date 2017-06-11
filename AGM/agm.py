@@ -1,5 +1,3 @@
-
-
 # Vanilla AGM iteration
 def agm(x, y=1):
     for _ in range(5): 
@@ -14,7 +12,7 @@ def agm3(x, y=1):
         print(x, y)
     return x
 
-# Degree N convergent 2-variable AGM-like iteration
+# N-tic convergence 2-variable AGM-like iteration
 # From Borwein^2
 def agmN(x, y=1, N=2):
     for _ in range(5):
@@ -38,6 +36,18 @@ print('AGM:3')
 agmN(10, N=3)
 print()
 
-print('AGMGuess')
-agmGuess(10)
+print('AGMStack')
+agmStack(10)
 print()
+
+import math
+from scipy import special
+
+k = 100
+X = [n/k for n in range(k)]
+Y1 = [special.ellipk((1-x**2)/2) for x in X]
+Y2 = [math.pi/2 / agmN(x, N=4) for x in X]
+
+import matplotlib.pyplot as plt
+plt.scatter(X,Y1)
+plt.show()
