@@ -25,5 +25,3 @@ for i in range(int(math.log(K, 2))):
 # All done
 pi = (a + b)**2 // (4 * t)
 print('3.' + str(pi)[1:-3])
-
-print('1.' + str(sqrt(pi * 10**K))[1:-3])
