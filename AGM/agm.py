@@ -15,7 +15,7 @@ def agm3(x, y=1, verbose=0):
 # N-tic convergence 2-variable AGM-like iteration
 # From Borwein^2
 def agmN(x, y=1, N=2, verbose=0):
-    for _ in range(5):
+    for _ in range(8):
         c = (x-y)/N
         x = (x + (N-1)*y)/N
         y = (x**N - c**N)**(1/N)
@@ -32,23 +32,30 @@ def agmStack(a, b=1, c=1, verbose=0):
         if verbose: print(a, b, c)
     return a
 
-print('AGM:3')
-agmN(10, N=3, verbose=1)
-print()
 
-print('AGMStack')
-agmStack(10, verbose=1)
-print()
+
+if 0:
+    x=10
+
+    print('AGM3')
+    agm3(x,1, verbose=1)
+    print()
+
+    print('AGMStack')
+    agmStack(1, b=x, c=1, verbose=1)
+    print()
+
+
+
 
 import math
 from scipy import special
+import numpy as np
 
 k = 1000
-X = [100*n/k for n in range(k)]
-Y1 = [special.ellipk((1-x**2)/2) for x in X]
-Y2 = [math.pi/2 / agmN(x, N=4) for x in X]
+X = [5*n/k for n in range(1,k)]
 
 import matplotlib.pyplot as plt
-plt.scatter(X,Y1)
-plt.scatter(X,Y2)
+plt.plot(X,[math.pi/2/agmN(x,N=4) for x in X])
+plt.plot(X,[special.ellipk((1-x**2)/2) for x in X])
 plt.show()
