@@ -1,14 +1,14 @@
 import random
 import numpy as np
 
-a = 11
-b = 3
-c = 19
-d = 66
+a = 6
+b = 15
+c = 200
+d = 1
 
 T = a + b + c + d
 
-K = 50
+K = 100
 for e, i, g, f in np.ndindex((K,K,K,K)):
     e,i,g,f = e+1, i+1, g+1, f+1
 
