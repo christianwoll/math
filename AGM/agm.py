@@ -46,7 +46,7 @@ from scipy import special
 k = 100
 X = [n/k for n in range(k)]
 Y1 = [special.ellipk((1-x**2)/2) for x in X]
-Y2 = [math.pi/2 / agmN(x, N=4) for x in X]
+Y2 = [math.pi/2 / agmN(1,y=x, N=4) for x in X]
 
 import matplotlib.pyplot as plt
 plt.scatter(X,Y1)
