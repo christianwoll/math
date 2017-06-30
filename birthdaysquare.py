@@ -1,10 +1,10 @@
 import random
 import numpy as np
 
-a = 6
-b = 15
-c = 200
-d = 1
+a = 5
+b = 13
+c = 17
+d = 29
 
 T = a + b + c + d
 
